@@ -6,9 +6,16 @@
     - name: Set hostname
       hostname: name={{inventory_hostname}}
 
-- name: Base bamboo service
+- name:  Install counting panda
   hosts: base
   become: yes
+  tags: counting
   roles:
-    - { role: nodejs, tags: nodejs }
-    - { role: bamboo, tags: bamboo }
+    - { role: counting-panda }
+
+- name:  Install static panda
+  hosts: base
+  become: yes
+  tags: static
+  roles:
+    - { role: static-panda }

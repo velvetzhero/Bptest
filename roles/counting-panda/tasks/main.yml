@@ -1,0 +1,9 @@
+---
+- name: copy counting-panda app
+  copy: src=counting-panda-app dest=/tmp/ owner=root group=root mode=0755
+
+- name: copy counting-panda service
+  copy: src=counting-panda-service/counting-panda.conf dest=/etc/init owner=root group=root mode=0644
+
+- name: start counting-panda service
+  service: name=counting-panda state=started

@@ -1,0 +1,10 @@
+---
+- name: copy static-panda app
+  copy: src=static-panda-app dest=/tmp/ owner=root group=root mode=0755
+
+- name: copy static-panda service
+  copy: src=static-panda-service/static-panda.conf dest=/etc/init owner=root group=root mode=0644
+
+- name: start static-panda service
+  service: name=static-panda state=started 
+#- name: start static-panda service
